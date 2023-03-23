@@ -19,7 +19,9 @@ type HeB<A,B> = {
 }
 type Qie<T> = T extends `${infer K}=${infer V}` ? {
   [Key in K]:V
-} : {}
+} : Record<string,any>
 type QueryParamsType<S, B=S> = S extends `${infer R}&${infer REST}` ? HeB<QueryParamsType<REST,R>,Qie<R> > : Qie<S> 
 
 type Ob = QueryParamsType<'a=1&b=2'>
+
+
