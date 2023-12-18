@@ -11,7 +11,7 @@ function createCamera() {
   const near = 0.1;
   const far = 100;
   const instance = new PerspectiveCamera(fov, aspect, near, far);
-  instance.position.set(0, 0, 10);
+  instance.position.set(0, 0, 20);
   return instance;
 }
 
