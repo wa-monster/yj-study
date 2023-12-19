@@ -25,30 +25,15 @@ class World {
     this.#scene = createScene();
     this.#renderer = createRenderer();
     const cube = createCube();
-    const cube2 = createCube();
     const light = createLight();
     const light2 = createLight();
-    cube.add(cube2);
-    // cube.position.set(0, 0, 0);
-    // cube.scale.set(1, 1, 1);
-    // cube.updateMatrix();
-    // this.logCubeMatrix(cube);
-    console.log("MathUtils.degToRad(30)", MathUtils.degToRad(30));
-    cube.position.x = 9;
-    cube2.position.x = 2;
-    cube.updateMatrix();
-    cube.updateMatrixWorld();
-    this.logCubeMatrix(cube, "matrix");
-    this.logCubeMatrix(cube, "matrixWorld");
-    this.logCubeMatrix(cube2, "matrix");
-    this.logCubeMatrix(cube2, "matrixWorld");
-    // cube.rotation.z = MathUtils.degToRad(30);
-    // cube.updateMatrix();
-    // this.logCubeMatrix(cube);
-
+    cube.position.set(0, 0, 10);
+    cube.rotation.set(0, 0.5, 0.5);
     this.#scene.add(cube, light, light2);
     const resizer = new Resizer(this.#camera, this.#renderer, container);
-
+    resizer.onResize = () => {
+      this.render();
+    };
     container.append(this.#renderer.domElement);
   }
 
