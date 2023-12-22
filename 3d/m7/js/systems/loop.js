@@ -8,7 +8,6 @@ class Loop {
     this.updateables = [];
   }
   start() {
-    console.log("2222222");
     this.renderer.setAnimationLoop(() => {
       this.tick();
       this.renderer.render(this.scene, this.camera);
