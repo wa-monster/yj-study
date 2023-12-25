@@ -22,9 +22,9 @@ function createCube() {
   const cube = new Mesh(geometry, material);
   const degSeconds = MathUtils.degToRad(30);
   cube.tick = function (delta) {
-    cube.rotation.x += degSeconds * delta;
-    cube.rotation.y += degSeconds * delta;
-    cube.rotation.z += degSeconds * delta;
+    // cube.rotation.x += degSeconds * delta;
+    // cube.rotation.y += degSeconds * delta;
+    // cube.rotation.z += degSeconds * delta;
   };
   return cube;
 }
