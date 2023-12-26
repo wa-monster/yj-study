@@ -8,8 +8,8 @@ import {
 import { MathUtils } from "../../../vendor/three/build/three.module.js";
 function createMaterial() {
   const textureLoader = new TextureLoader();
-  const texture = textureLoader.load("/m7/assets/textures/uv-test-bw.png");
-  const texture2 = textureLoader.load("/m7/assets/textures/uv-test-col.png");
+  const texture = textureLoader.load("/m9/assets/textures/uv-test-bw.png");
+  const texture2 = textureLoader.load("/m9/assets/textures/uv-test-col.png");
   const material = new MeshStandardMaterial({
     map: texture2,
   });

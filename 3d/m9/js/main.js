@@ -8,8 +8,8 @@ function main() {
   const world = new World(container);
 
   startBtn.onclick = function () {
-    world.start();
-    // world.render();
+    // world.start();
+    world.render();
   };
   stopBtn.onclick = function () {
     world.stop();

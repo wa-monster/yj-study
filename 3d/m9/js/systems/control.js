@@ -4,7 +4,7 @@ function createControls(camera, canvas, cube, obj) {
   const controls = new OrbitControls(camera, canvas);
   controls.enablePan = false;
   controls.target.copy(cube.position);
-  controls.enableDamping = true;
+  // controls.enableDamping = true;
   controls.tick = function () {
     if (obj.move) {
       controls.enabled = false;

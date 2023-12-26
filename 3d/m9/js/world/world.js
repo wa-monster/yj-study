@@ -21,28 +21,16 @@ class World {
     this.#scene = createScene();
     this.#renderer = createRenderer();
     const cube = createCube();
-    const light = createLight();
-    const light2 = createLight();
-    this.#scene.add(cube, light, light2);
+    const { light, ambientLight, hemisphereLight } = createLight();
+    this.#scene.add(cube, light, hemisphereLight);
     // 自适应
     const resizer = new Resizer(this.#camera, this.#renderer, container);
-    // 循环
-    this.#loop = new Loop(this.#camera, this.#scene, this.#renderer);
-    this.#loop.updateables.push(cube);
-    // this.#loop.updateables.push(light);
-    // this.#loop.updateables.push(this.#camera);
     const controls = createControls(
       this.#camera,
       this.#renderer.domElement,
       cube,
       this.#obj
     );
-    controls.minDistance = 10;
-    controls.maxDistance = 100;
-    // controls.enablePan = false;
-    // controls.enableRotate = false;
-    // controls.enableZoom = false;
-    this.#loop.updateables.push(controls);
     container.append(this.#renderer.domElement);
     controls.addEventListener("change", () => {
       this.#renderer.render(this.#scene, this.#camera);
