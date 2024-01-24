@@ -12,10 +12,12 @@ import {
   Vector3,
   AnimationClip,
   VectorKeyframeTrack,
+  AnimationMixer,
   NumberKeyframeTrack,
 } from "../../../vendor/three/build/three.module.js";
 import { OrbitControls } from "../../../vendor/three/examples/jsm/controls/OrbitControls.js";
 let controls;
+let parrotMesh;
 class World {
   #camera;
   #scene;
@@ -43,10 +45,13 @@ class World {
   }
   async init() {
     const { parrot, flamingo, stork } = await loadBirds();
-
+    parrotMesh = parrot;
     controls.target.copy(parrot.position);
     controls.update();
+    this.#loop.updateables.push(parrot, flamingo, stork);
     this.#scene.add(parrot, flamingo, stork);
+
+    // this.abc();
   }
   start() {
     this.#loop.start();
@@ -59,18 +64,6 @@ class World {
   }
   render() {
     this.#renderer.render(this.#scene, this.#camera);
-  }
-  abc(mesh) {
-    const positionKF = VectorKeyframeTrack(
-      ".position",
-      [0, 3, 6],
-      [0, 0, 0, 3, 3, 3, 0, 0, 0]
-    );
-    const opacityKF = NumberKeyframeTrack(
-      ".material.opacity",
-      [0, 1, 2, 3, 4, 5, 6, 7],
-      [0, 1, 0, 1, 0, 1, 0, 1]
-    );
   }
 }
 

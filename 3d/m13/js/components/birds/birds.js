@@ -16,6 +16,7 @@ async function loadBirds() {
 
   const stork = setupModel(storkData);
   stork.position.set(0, -2.5, -10);
+  console.log("wwwwwwwwwwww", parrotData);
   return { parrot, flamingo, stork };
 }
 
